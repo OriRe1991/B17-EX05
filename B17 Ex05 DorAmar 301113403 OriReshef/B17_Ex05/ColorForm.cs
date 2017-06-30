@@ -4,11 +4,13 @@ using System.Windows.Forms;
 
 namespace B17_Ex05
 {
-    public class ColorForm: Form
+    public class ColorForm : Form
     {
         private Color m_CurrPick;
+        TableLayoutPanel m_GameButtonPanel = null;
 
         public Color CurrPick { get => m_CurrPick; }
+        public TableLayoutPanel GameButtonPanel { get => m_GameButtonPanel; }
 
         public ColorForm()
         {
@@ -19,22 +21,22 @@ namespace B17_Ex05
 
         private void initControls()
         {
-            TableLayoutPanel gameButtonPanel = new TableLayoutPanel();
-            gameButtonPanel.RowCount = 2;
-            gameButtonPanel.ColumnCount = 4;
-            gameButtonPanel.AutoSize = true;
-            gameButtonPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            gameButtonPanel.Location = new Point(this.Left, this.Bottom - gameButtonPanel.Height);
-            this.Controls.Add(gameButtonPanel);
+            m_GameButtonPanel = new TableLayoutPanel();
+            m_GameButtonPanel.RowCount = 2;
+            m_GameButtonPanel.ColumnCount = 4;
+            m_GameButtonPanel.AutoSize = true;
+            m_GameButtonPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            m_GameButtonPanel.Location = new Point(this.Left, this.Bottom - GameButtonPanel.Height);
+            this.Controls.Add(GameButtonPanel);
 
-            for (int i = 0; i < gameButtonPanel.RowCount; i++)
+            for (int i = 0; i < GameButtonPanel.RowCount; i++)
             {
-                for (int j = 0; j < gameButtonPanel.ColumnCount; j++)
+                for (int j = 0; j < GameButtonPanel.ColumnCount; j++)
                 {
                     GuessButton button = new GuessButton(new Point(j, i));
                     int currColorIdx = (i * 4) + j + 1;
                     button.BackColor = Color.FromName(((Guess.eGameOptions)(currColorIdx)).ToString());
-                    gameButtonPanel.Controls.Add(button, j, i);
+                    GameButtonPanel.Controls.Add(button, j, i);
                     button.Click += new EventHandler(GuessButton_ClicK);
                 }
             }

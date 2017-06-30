@@ -41,7 +41,7 @@ namespace B17_Ex05
             m_ButtonNumberOfChances.Dock = DockStyle.Top;
 
             m_ButtonStart = new Button();
-            m_ButtonStart.Text = "start";
+            m_ButtonStart.Text = "Start";
             m_ButtonStart.AutoSize = true;
             m_ButtonStart.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             m_ButtonStart.Location = new Point(this.ClientSize.Width - (m_ButtonStart.Width + 8), this.ClientSize.Height - (m_ButtonStart.Height + 8));

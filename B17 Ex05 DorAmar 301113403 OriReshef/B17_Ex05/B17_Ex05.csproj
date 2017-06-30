@@ -54,6 +54,9 @@
     <Compile Include="ColorForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormGameResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GuessButton.cs">
       <SubType>Component</SubType>
     </Compile>

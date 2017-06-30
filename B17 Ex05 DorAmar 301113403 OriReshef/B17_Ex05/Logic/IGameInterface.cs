@@ -18,5 +18,9 @@ namespace B17_Ex05
         void StartNewGame();
 
         void makeGuess(Guess i_UserGuess);
+
+        bool IsGameOver { get; }
+
+        bool IsVictory { get; }
     }
 }
