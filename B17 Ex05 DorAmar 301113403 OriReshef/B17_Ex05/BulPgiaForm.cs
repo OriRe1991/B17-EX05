@@ -18,7 +18,6 @@ namespace B17_Ex05
         private TableLayoutPanel m_GameButtonPanel = null;
         private List<TableLayoutPanel> m_GuessResultsPanels = null;
         private TableLayoutPanel m_EndOfGameButtons = null;
-        //private MessageBox m_MessageBoxGameResult;
 
         public BulPgiaForm()
         {
@@ -37,7 +36,6 @@ namespace B17_Ex05
 
         private void InitControls()
         {
-
             m_EndOfGameButtons = new TableLayoutPanel();
             m_EndOfGameButtons.AutoSize = true;
             m_EndOfGameButtons.AutoSizeMode = AutoSizeMode.GrowAndShrink;
@@ -58,6 +56,7 @@ namespace B17_Ex05
         {
             i_TablePanel.RowCount = 1;
             i_TablePanel.ColumnCount = i_LineLength;
+
             for (int i = 0; i < i_LineLength; i++)
             {
                 GuessButton endOfGameButton = new GuessButton(new Point(i, 0));
@@ -71,6 +70,7 @@ namespace B17_Ex05
         {
             i_TablePanel.RowCount = i_numOfLines;
             i_TablePanel.ColumnCount = i_LineLength;
+
             for (int i = 0; i < i_numOfLines; i++)
             {
                 for (int j = 0; j < i_LineLength; j++)
@@ -84,12 +84,13 @@ namespace B17_Ex05
                     {
                         button.Enabled = true;
                     }
+
                     i_TablePanel.Controls.Add(button, j, i);
                     button.Click += new EventHandler(GuessButton_ClicK);
                 }
 
                 ButtonMakeGuess makeGuessButton = new ButtonMakeGuess(i);
-                makeGuessButton.InitButton(new Point(i_TablePanel.Right, m_EndOfGameButtons.Location.Y + 20 + (45 * (i+1))));
+                makeGuessButton.InitButton(new Point(i_TablePanel.Right, m_EndOfGameButtons.Location.Y + 20 + (45 * (i + 1))));
                 this.Controls.Add(makeGuessButton);
                 makeGuessButton.Click += new EventHandler(makeGuessButton_Click);
                 m_ButtonMakeGuessList.Add(makeGuessButton);
@@ -102,7 +103,6 @@ namespace B17_Ex05
                 this.Controls.Add(guessResultPanel);
                 m_GuessResultsPanels.Add(guessResultPanel);
             }
-
         }
 
         private void createGuessResultPanel(TableLayoutPanel i_TablePanel, int i_numOfLines, int i_LineLength)
@@ -117,7 +117,6 @@ namespace B17_Ex05
                     button.Enabled = false;
                     button.Height = 15;
                     button.Width = 15;
-
                     i_TablePanel.Controls.Add(button, j, i);
                 }
             }
@@ -133,7 +132,6 @@ namespace B17_Ex05
                 {
                     button.Enabled = false;
                 }
-
                 else if (button.Location.Y == currRound)
                 {
                     button.Enabled = true;
@@ -145,14 +143,15 @@ namespace B17_Ex05
             {
                 button.Enabled = true;
             }
-            m_CurrGuess.NumberOfinputs = 0;
 
+            m_CurrGuess.NumberOfinputs = 0;
             int resultBttnIndex = 0;
             for (int i = 0; i < m_Logic.GuessResultList[(sender as ButtonMakeGuess).RoundNumber].BulHits; i++)
             {
                 ((Button)m_GuessResultsPanels[(sender as ButtonMakeGuess).RoundNumber].Controls[resultBttnIndex]).BackColor = Color.Black;
                 resultBttnIndex++;
             }
+
             for (int i = m_Logic.GuessResultList[(sender as ButtonMakeGuess).RoundNumber].BulHits; i < m_Logic.GuessResultList[(sender as ButtonMakeGuess).RoundNumber].PgiyaHits; i++)
             {
                 ((Button)m_GuessResultsPanels[(sender as ButtonMakeGuess).RoundNumber].Controls[resultBttnIndex]).BackColor = Color.Yellow;
@@ -163,13 +162,13 @@ namespace B17_Ex05
                 int index = 0;
                 foreach (GuessButton btn in m_EndOfGameButtons.Controls)
                 {
-                    btn.BackColor = ((GuessButton)m_GameButtonPanel.Controls[((sender as ButtonMakeGuess).RoundNumber*Config.k_GuessLength) + index]).BackColor;
+                    btn.BackColor = ((GuessButton)m_GameButtonPanel.Controls[((sender as ButtonMakeGuess).RoundNumber * Config.k_GuessLength) + index]).BackColor;
                     index++;
                 }
+
                 MessageBox.Show("Congratulations! You have won :))");
                 this.Close();
             }
-
             else if(m_Logic.IsGameOver)
             {
                 MessageBox.Show("Game Over!");
@@ -186,7 +185,6 @@ namespace B17_Ex05
             {
                 m_ButtonMakeGuessList[(sender as GuessButton).Location.Y].Enabled = true;
             }
-            //m_ColorForm.Hide();
         }
     }
 }

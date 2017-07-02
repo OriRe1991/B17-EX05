@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace B17_Ex05
 {
-    public class GameEngine: IGameInterface
+    public class GameEngine : IGameInterface
     {
         private int m_NumOfRounds;
         private Dictionary<Guess.eGameOptions, int> m_GeneratedSequence;
@@ -115,6 +115,5 @@ namespace B17_Ex05
         {
             this.m_IsVictory = m_CurrentGuessResult.BulHits == Config.k_GuessLength;
         }
-
     }
 }

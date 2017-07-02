@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace B17_Ex05
 {
-    class GuessButton : Button
+    public class GuessButton : Button
     {
         private Point m_Location;
 
@@ -20,6 +20,6 @@ namespace B17_Ex05
             this.Height = 40;
         }
 
-        public Point Location { get => m_Location; }
+        public new Point Location { get => m_Location; }
     }
 }

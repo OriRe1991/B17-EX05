@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace B17_Ex05
 {
-    class MaxGuessForm : Form
+    public class MaxGuessForm : Form
     {
         private Button m_ButtonNumberOfChances;
         private Button m_ButtonStart;
@@ -20,7 +20,6 @@ namespace B17_Ex05
             this.Text = "Bool Pgia";
             this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
             this.StartPosition = FormStartPosition.CenterScreen;
-
         }
 
         public int StartNumOfChances { get => m_StartNumOfChances; }
@@ -39,15 +38,12 @@ namespace B17_Ex05
             m_ButtonNumberOfChances.AutoSize = true;
             m_ButtonNumberOfChances.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             m_ButtonNumberOfChances.Dock = DockStyle.Top;
-
             m_ButtonStart = new Button();
             m_ButtonStart.Text = "Start";
             m_ButtonStart.AutoSize = true;
             m_ButtonStart.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             m_ButtonStart.Location = new Point(this.ClientSize.Width - (m_ButtonStart.Width + 8), this.ClientSize.Height - (m_ButtonStart.Height + 8));
-
             this.Controls.AddRange(new Control[] { m_ButtonStart, m_ButtonNumberOfChances });
-
             this.m_ButtonStart.Click += new EventHandler(m_ButtonStart_Click);
             this.m_ButtonNumberOfChances.Click += new EventHandler(m_ButtonNumberOfChances_Click);
         }
@@ -58,7 +54,6 @@ namespace B17_Ex05
             {
                 this.m_StartNumOfChances++;
             }
-
             else
             {
                 this.m_StartNumOfChances = Config.k_MinNumOfGusses;

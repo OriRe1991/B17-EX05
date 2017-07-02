@@ -7,9 +7,10 @@ namespace B17_Ex05
     public class ColorForm : Form
     {
         private Color m_CurrPick;
-        TableLayoutPanel m_GameButtonPanel = null;
+        private TableLayoutPanel m_GameButtonPanel = null;
 
         public Color CurrPick { get => m_CurrPick; }
+
         public TableLayoutPanel GameButtonPanel { get => m_GameButtonPanel; }
 
         public ColorForm()
@@ -35,7 +36,7 @@ namespace B17_Ex05
                 {
                     GuessButton button = new GuessButton(new Point(j, i));
                     int currColorIdx = (i * 4) + j + 1;
-                    button.BackColor = Color.FromName(((Guess.eGameOptions)(currColorIdx)).ToString());
+                    button.BackColor = Color.FromName(((Guess.eGameOptions)currColorIdx).ToString());
                     GameButtonPanel.Controls.Add(button, j, i);
                     button.Click += new EventHandler(GuessButton_ClicK);
                 }
