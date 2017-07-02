@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace B17_Ex05
 {
@@ -12,5 +13,12 @@ namespace B17_Ex05
         }
 
         public int RoundNumber { get => m_RoundNumber; }
+
+        public void InitButton(Point i_Location)
+        {
+            this.Text = "-->>";
+            this.Enabled = false;
+            this.Location = i_Location;
+        }
     }
 }

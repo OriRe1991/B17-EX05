@@ -26,7 +26,7 @@ namespace B17_Ex05
             m_GameButtonPanel.ColumnCount = 4;
             m_GameButtonPanel.AutoSize = true;
             m_GameButtonPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            m_GameButtonPanel.Location = new Point(this.Left, this.Bottom - GameButtonPanel.Height);
+            m_GameButtonPanel.Location = new Point(0, 0);
             this.Controls.Add(GameButtonPanel);
 
             for (int i = 0; i < GameButtonPanel.RowCount; i++)

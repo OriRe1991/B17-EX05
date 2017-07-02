@@ -33,7 +33,6 @@ namespace B17_Ex05
             m_Logic.StartNewGame();
             m_ButtonMakeGuessList = new List<ButtonMakeGuess>();
             this.InitControls();
-            //this.ShowDialog();
         }
 
         private void InitControls()
@@ -49,7 +48,7 @@ namespace B17_Ex05
             m_GameButtonPanel = new TableLayoutPanel();
             m_GameButtonPanel.AutoSize = true;
             m_GameButtonPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            m_GameButtonPanel.Location = new Point(this.Left, this.Bottom - m_GameButtonPanel.Height);
+            m_GameButtonPanel.Location = new Point(m_EndOfGameButtons.Location.X, m_EndOfGameButtons.Location.Y + 45);
             m_GuessResultsPanels = new List<TableLayoutPanel>();
             createButtonMatrix(m_GameButtonPanel, m_Logic.NumOfRounds, Config.k_GuessLength);
             this.Controls.Add(m_GameButtonPanel);
@@ -90,9 +89,7 @@ namespace B17_Ex05
                 }
 
                 ButtonMakeGuess makeGuessButton = new ButtonMakeGuess(i);
-                makeGuessButton.Text = "-->>";
-                makeGuessButton.Enabled = false;
-                makeGuessButton.Location = new Point(i_TablePanel.Right, i_TablePanel.Top + 40 * i);
+                makeGuessButton.InitButton(new Point(i_TablePanel.Right, m_EndOfGameButtons.Location.Y + 20 + (45 * (i+1))));
                 this.Controls.Add(makeGuessButton);
                 makeGuessButton.Click += new EventHandler(makeGuessButton_Click);
                 m_ButtonMakeGuessList.Add(makeGuessButton);
@@ -100,7 +97,7 @@ namespace B17_Ex05
                 TableLayoutPanel guessResultPanel = new TableLayoutPanel();
                 guessResultPanel.AutoSize = true;
                 guessResultPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-                guessResultPanel.Location = new Point(makeGuessButton.Right, makeGuessButton.Top);
+                guessResultPanel.Location = new Point(makeGuessButton.Right, m_EndOfGameButtons.Location.Y + (45 * (i + 1)));
                 createGuessResultPanel(guessResultPanel, 2, 2);
                 this.Controls.Add(guessResultPanel);
                 m_GuessResultsPanels.Add(guessResultPanel);
