@@ -1,9 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B17_Ex05", "B17_Ex05\B17_Ex05.csproj", "{27929E81-42A4-4855-A37C-5A66276F41B6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ED01D246-0BE3-4303-A98E-9B1B37B3418C}"
+	ProjectSection(SolutionItems) = preProject
+		B17_Ex05\Exercise Checking Report.txt = B17_Ex05\Exercise Checking Report.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
